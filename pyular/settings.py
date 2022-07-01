@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-s_vqc&-t(#sr5tg#b--%$+p#)mjb3*e!1n709gk3k5rg0t*@bb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-env.eba-bkqdiip4.us-west-1.elasticbeanstalk.com','127.0.0.1']
+ALLOWED_HOSTS = ['pyular.com', 'django-env.eba-bkqdiip4.us-west-1.elasticbeanstalk.com','127.0.0.1']
 
 
 # Application definition
