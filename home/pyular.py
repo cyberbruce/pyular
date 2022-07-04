@@ -5,18 +5,21 @@ class PyularParse:
     def __init__(self, expression, sample):
         self.expression = expression
         self.sample = sample
-        
+        self.pattern = re.compile(self.expression)
         
         
     def __str__(self):
         return self.expression
+    
+    
+        
     
     def output(self):
         res = self.match()        
         return res
     
     def matches(self):
-        return re.findall(self.expression, self.sample)
+        return self.pattern.finditer(self.sample)
 
     def match(self):         
         return re.match(self.expression, self.sample)
