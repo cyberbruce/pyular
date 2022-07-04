@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rd party
+    'crispy_forms',
+    # local
     'home'
 ]
 
@@ -127,5 +130,12 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+
 if os.getenv("DJANGO_ENV") == "production":
+    print("env: production")
     SECURE_SSL_REDIRECT = True
+

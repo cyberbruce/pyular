@@ -1,0 +1,31 @@
+{% load crispy_forms_tags %}
+{% load crispy_forms_field %}
+ 
+  <div class="row">
+    <div class="col-md-6">
+      <div class="my-2">        
+        {% crispy form %}
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="border m-2 h-100">
+        <div class="htmx-indicator hide-opacity">Processing</div>
+
+        {% if parse %}
+        <div class="border bg-light border p-2 m-2">
+          {% for x in parse.splits %}
+            {{ x }},
+          {% endfor %}
+        </div>
+        <div>Matches:</div>
+        {% for name, g in parse.groups.items %}
+          <div class="m-2 border bg-light rounded p-2" >
+             <div class="text-small border-bottom">Name: <b>{{name}}</b></div> 
+             {{ g }}              
+          </div>
+        {% endfor %}         
+        {% endif %}
+      </div>
+    </div>
+</form>
