@@ -6,11 +6,7 @@ from . import pyular
 
 def home(request):  
     context = {}
-    form = forms.PyularForm(request.POST or None,
-                          initial={
-                          'expression': '(?P<first_name>\w+) (?P<last_name>\w+)',
-                          'sample': 'Malcolm Reynolds'
-                          })
+    form = forms.PyularForm(request.POST or None)
     context['form'] = form        
     if request.method == "POST":
        
