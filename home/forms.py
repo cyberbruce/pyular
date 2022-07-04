@@ -1,4 +1,3 @@
-from tkinter.tix import Form
 from django import forms
 from crispy_forms.helper import FormHelper
 from django.urls import reverse_lazy
