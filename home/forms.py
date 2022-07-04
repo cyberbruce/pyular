@@ -13,7 +13,7 @@ class PyularForm(forms.Form):
         self.helper.attrs = {
             'hx-post': reverse_lazy('home'),
             'hx-target': '#pyular-form',
-            'hx-trigger': 'submit, input keyup delay:500m'
+            'hx-trigger': 'keyup delay:500m'
         }
 
     expression = forms.CharField(
