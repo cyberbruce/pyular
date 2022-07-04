@@ -1,31 +1,29 @@
 {% load crispy_forms_tags %}
 {% load crispy_forms_field %}
+
+<div class="border m-2 h-100">
+  {% if parse %}
+  Match: {{ parse.output }}
+  <div class="border bg-light border p-2 m-2">
+    Match: {{ parse.single_group }}
+  </div>
+  
+  
+  <h4>Matches</h4>
+  {% for g,x in parse.matches  %}
+  <div class="m-2 border bg-light rounded p-2">    
+    {{ g }}
+  </div>
+  {% endfor %}
+  {% endif %}
+
+
+  <h4>{{ parse.groups_formatted.name }} </h4>  
+  {% for name, x in parse.groups_formatted.items %}
+  <div>Name: <b>{{name}}</b></div>
+  <div class="bordered bg-dark text-white m-2 p-2">
+   {{ x }}
+  </div>
+  {% endfor %}
  
-  <div class="row">
-    <div class="col-md-6">
-      <div class="my-2">        
-        {% crispy form %}
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="border m-2 h-100">
-        <div class="htmx-indicator hide-opacity">Processing</div>
-
-        {% if parse %}
-        <div class="border bg-light border p-2 m-2">
-          {% for x in parse.splits %}
-            {{ x }},
-          {% endfor %}
-        </div>
-        <div>Matches:</div>
-        {% for name, g in parse.groups.items %}
-          <div class="m-2 border bg-light rounded p-2" >
-             <div class="text-small border-bottom">Name: <b>{{name}}</b></div> 
-             {{ g }}              
-          </div>
-        {% endfor %}         
-        {% endif %}
-      </div>
-    </div>
-</form>
+</div>

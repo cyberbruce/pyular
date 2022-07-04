@@ -12,19 +12,23 @@ class PyularForm(forms.Form):
         self.helper.form_show_labels=False
         self.helper.attrs = {
             'hx-post': reverse_lazy('home'),
-            'hx-target': '#pyular-form',
-            'hx-trigger': 'keyup delay:500m'
+            'hx-target': '#reg-target',
+            'hx-trigger': 'change, keyup delay:500m',
+            'hx-indicator': '#progress-indicator'
+            
         }
 
     expression = forms.CharField(
         max_length=255,
         widget=forms.TextInput(attrs={
-            'placeholder': 'Enter Python Regular Expression'
+            'placeholder': 'Enter Python Regular Expression',
+            'class': 'm-2'
         })
     )
 
     sample = forms.CharField(widget=forms.Textarea(        
         attrs={
-            'placeholder': 'Enter sample text'
+            'placeholder': 'Enter sample text',
+            'class': 'm-2'
         })
     )
