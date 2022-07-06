@@ -4,8 +4,9 @@
 <div class="border m-2 h-100">
   {% if parse %}
   
+  <div class="text-muted text-small">Match:</div>
   <div class="border bg-light border p-2 m-2">
-    Match: 
+   
     {% for x in parse.output %}
     
       {{ x }}
@@ -13,7 +14,7 @@
     {% endfor %}
   </div> 
   
-  <h4>Matches</h4> 
+  <div class="text-muted text-small">Match Groups:</div> 
   {% for m in parse.matches  %}
    
     {% if not m.groupdict.items %}
