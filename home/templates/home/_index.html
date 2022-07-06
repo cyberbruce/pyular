@@ -5,22 +5,28 @@
   {% if parse %}
   
   <div class="border bg-light border p-2 m-2">
-    Match: {{ parse.output.0 }}
-  </div>
-  
-  
-  <h4>Match Groups</h4>
-  {% for m in parse.matches  %}
+    Match: 
+    {% for x in parse.output %}
     
+      {{ x }}
+    
+    {% endfor %}
+  </div> 
+  
+  <h4>Matches</h4> 
+  {% for m in parse.matches  %}
+   
+    {% if not m.groupdict.items %}
     {% for grp_value in m.groups %}  
     <div class="border bg-white m-2 p-2">
     {{ grp_value }}
     </div>
     {% endfor %}
+    {% endif %}
 
     {% for grp_name, grp_value in m.groupdict.items %}
     <div>Name: <b>{{grp_name}}</b></div>
-    <div class="bordered bg-dark text-white m-2 p-2">
+    <div class="rounded bordered bg-secondary text-white m-2 p-2">
     {{ grp_value }}
     </div>
     {% endfor %}

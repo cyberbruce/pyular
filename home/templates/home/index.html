@@ -13,10 +13,26 @@
 <div class="htmx-indicator" id="progress-indicator">Processing</div> 
 <div id="pyular-form">
 
+  <form method="post" 
+    hx-post="{% url 'home' %}" 
+    hx-trigger="keyup delay:250ms" 
+    hx-target="#reg-target"
+    autocomplete="off"
+/>
+
+  {% csrf_token %}  
+<div class="row">
+  <div class="col-md-12">
+    <div class="my-2">    
+      {{ form.expression }}
+    </div>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-md-6">
     <div class="my-2">    
-      {% crispy form %}
+      {{ form.sample }}
     </div>
   </div>
 

@@ -1,5 +1,6 @@
 import re
-
+import string
+from django.utils.safestring import mark_safe
 
 class PyularParse:
     def __init__(self, expression, sample):
@@ -10,14 +11,26 @@ class PyularParse:
         
     def __str__(self):
         return self.expression
-    
-    
-        
+     
     
     def output(self):
-        res = self.match()        
-        return res
-    
+        string_builder = []
+        index = 0 
+        for m in self.matches():  
+            if index < m.start():
+                string_builder.append(m.string[index:m.start()])
+
+            seg = m.string[m.start():m.end()]
+            string_builder.append(mark_safe("<div class='d-inline-block bg-warning'>"))
+            string_builder.append(seg)  
+            string_builder.append(mark_safe("</div>"))
+            index = m.end()
+            
+        if index < len(self.sample):
+            string_builder.append(self.sample[index:])
+
+        return string_builder
+
     def matches(self):
         return self.pattern.finditer(self.sample)
 

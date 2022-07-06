@@ -12,12 +12,16 @@ def home(request):
     context['form'] = form        
     if request.method == "POST":            
         if form.is_valid():
-            result = pyular.PyularParse(
-                form.cleaned_data['expression'],
-                form.cleaned_data['sample']
-            )            
-            context['parse'] = result         
-         
+            try:
+                result = pyular.PyularParse(
+                    form.cleaned_data['expression'],
+                    form.cleaned_data['sample']
+                )            
+                context['parse'] = result         
+            except Exception as e:
+                context['parse'] = None
+                print(e)
+                
         return render(request, "home/_index.html", context)
     else:
       return render(request, "home/index.html", context)
