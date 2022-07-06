@@ -6,8 +6,8 @@
 {% load crispy_forms_field %}
 
 {% block body %}
-<h1>Pyular</h1>
-<h4>Python Regular Expression Playground</h4>
+<h1 class="moon-font page-title center">Pyular</h1>
+<h4 class="center">Python Regular Expression Playground</h4>
 
 
 <div class="htmx-indicator" id="progress-indicator">Processing</div> 
@@ -37,6 +37,8 @@
   </div>
 
   <div class="col-md-6" id="reg-target">
+
+    <div class="text-muted text-center text-computed-result">Computed Result</div>
     {% include 'home/_index.html' %}  
   </div>
   </form>
