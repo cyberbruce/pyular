@@ -14,7 +14,9 @@ class PyularForm(forms.Form):
         })
     )
 
-    sample = forms.CharField(widget=forms.Textarea(        
+    sample = forms.CharField(
+        max_length=4000,
+        widget=forms.Textarea(               
         attrs={
             'placeholder': 'Enter sample text',
             'class': 'm-2 form-control'
