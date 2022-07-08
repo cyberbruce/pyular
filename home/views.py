@@ -20,7 +20,9 @@ def home(request):
                 context['parse'] = result         
             except Exception as e:
                 context['parse'] = None
-                print(e)
+        else:
+            context['parse'] = None
+                
                 
         return render(request, "home/_index.html", context)
     else:

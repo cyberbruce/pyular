@@ -3,40 +3,40 @@
 
 <div class="border m-2 h-100">
   {% if parse %}
-  
+
   <div class="text-muted text-small">Match:</div>
   <div class="border bg-light border p-2 m-2">
-   
-    {% for x in parse.output %}
-    
-      {{ x }}
-    
-    {% endfor %}
-  </div> 
-  
-  <div class="text-muted text-small">Match Groups:</div> 
-  {% for m in parse.matches  %}
-   
-    {% if not m.groupdict.items %}
-    {% for grp_value in m.groups %}  
-    <div class="border bg-white m-2 p-2">
-    {{ grp_value }}
-    </div>
-    {% endfor %}
-    {% endif %}
 
-    {% for grp_name, grp_value in m.groupdict.items %}
-    <div>Name: <b>{{grp_name}}</b></div>
-    <div class="rounded bordered bg-secondary text-white m-2 p-2">
-    {{ grp_value }}
-    </div>
+    {% for x in parse.output %}
+
+    {{ x }}
+
     {% endfor %}
-   
+  </div>
+
+  <div class="text-muted text-small">Match Groups:</div>
+  {% for m in parse.matches  %}
+
+  {% if not m.groupdict.items %}
+  {% for grp_value in m.groups %}
+  <div class="border bg-white m-2 p-2">
+    {{ grp_value }}
+  </div>
   {% endfor %}
-  
+  {% endif %}
+
+  {% for grp_name, grp_value in m.groupdict.items %}
+  <div>Name: <b>{{grp_name}}</b></div>
+  <div class="rounded bordered bg-secondary text-white m-2 p-2">
+    {{ grp_value }}
+  </div>
+  {% endfor %}
+
+  {% endfor %}
+
   {% endif %}
 
 
-   
- 
+
+
 </div>
