@@ -10,8 +10,7 @@ class PyularForm(forms.Form):
         max_length=255,
         widget=forms.TextInput(attrs={
             'placeholder': 'Enter Python Regular Expression',
-            'class': 'm-2 form-control',
-            'autofocus': 'true'
+            'class': 'm-2 form-control'
         })
     )
 
