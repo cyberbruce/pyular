@@ -1,3 +1,7 @@
+:root {
+    font-size: 18px;
+}
+
 .hide-opacity {
     opacity: 0;
 }
@@ -21,4 +25,8 @@ body {
 .text-computed-result {
     font-size: 2rem;
     font-weight: 200;
+}
+
+.hide-opacity {
+    opacity: 0;
 }

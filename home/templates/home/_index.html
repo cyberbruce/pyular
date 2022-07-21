@@ -1,7 +1,7 @@
 {% load crispy_forms_tags %}
 {% load crispy_forms_field %}
 
-<div class="m-2 h-100">
+<div class="m-2 text-center">
   {% if parse %}
 
   <div class="text-muted text-small">Match:</div>
@@ -34,6 +34,8 @@
 
   {% endfor %}
 
+  {% else %}
+    ---
   {% endif %}
 
 

@@ -10,15 +10,16 @@ class PyularForm(forms.Form):
         max_length=255,
         widget=forms.TextInput(attrs={
             'placeholder': 'Enter Python Regular Expression',
-            'class': 'm-2 form-control'
+            'class': 'form-control'
+            
         })
     )
 
     sample = forms.CharField(
-        max_length=4000,
+        max_length=500,
         widget=forms.Textarea(               
         attrs={
             'placeholder': 'Enter sample text',
-            'class': 'm-2 form-control'
+            'class': 'form-control'
         })
     )

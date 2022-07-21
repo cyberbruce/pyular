@@ -6,42 +6,45 @@
 {% load crispy_forms_field %}
 
 {% block body %}
-<h1 class="moon-font page-title center">Pyular</h1>
-<h4 class="center">Python Regular Expression Playground</h4>
-
-
-<div class="htmx-indicator" id="progress-indicator">Processing</div> 
-<div id="pyular-form">
-
-  <form method="post" novalidate
-    hx-post="{% url 'home' %}" 
-    hx-trigger="keyup delay:500ms" 
-    hx-target="#reg-target"
-    autocomplete="off"
-/>
-
-  {% csrf_token %}  
-<div class="row">
-  <div class="col-md-12">
-    <div class="my-2">    
-      {{ form.expression }}
-    </div>
-  </div>
+<div class="container text-center">
+  <h1 class="moon-font page-title">Pyular</h1>
+  <h4 class="center">Python Regular Expression Playground</h4>
 </div>
 
-<div class="row">
-  <div class="col-md-6">
-    <div class="my-2">    
-      {{ form.sample }}
+
+<div id="pyular-form">
+
+  <form method="post" novalidate hx-post="{% url 'home' %}" hx-trigger="keyup delay:500ms" hx-target="#reg-target"
+    autocomplete="off" />
+
+  {% csrf_token %}
+
+  <div class="mx-3">
+    <label for="id_expression">Enter your regular expression here!</label>
+    {{ form.expression }}
+  </div>
+ 
+
+  <div class="d-flex flex-wrap flex-grow-1">
+    <div>
+      <div class="mx-3 my-3 flex-grow">
+        <label for="id_sample">Experiment with a test string below:</label>
+        {{ form.sample }}
+      </div>
+    </div>
+
+    <div class="mx-3 my-3 flex-grow-1">
+      <div class="htmx-indicator hide-opacity" id="progress-indicator">Processing</div>
+      <div id="reg-target">
+        <div class="text-muted text-center text-computed-result"></div>
+        {% include 'home/_index.html' %}
+      </div>
     </div>
   </div>
 
-  <div class="col-md-6" id="reg-target">
-    <div class="text-muted text-center text-computed-result">Computed Result</div>
-    {% include 'home/_index.html' %}  
-  </div>
-  </form>
   
+  </form>
+
 </div>
 
 
